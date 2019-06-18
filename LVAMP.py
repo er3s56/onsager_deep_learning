@@ -25,8 +25,8 @@ prob = problems.bernoulli_gaussian_trial(kappa=None,M=250,N=500,L=1000,pnz=.1,SN
 #prob = problems.random_access_problem(2) # 1 or 2 for compressive random access or massive MIMO
 
 # build an LVAMP network to solve the problem and get the intermediate results so we can greedily extend and then refine(fine-tune)
-layers = networks.build_LVAMP(prob,T=6,shrink='bg')
-#layers = networks.build_LVAMP_dense(prob,T=3,shrink='pwgrid')
+#layers = networks.build_LVAMP(prob,T=6,shrink='bg')
+layers = networks.build_LVAMP_dense(prob,T=3,shrink='pwgrid')
 
 # plan the learning
 training_stages = train.setup_training(layers,prob,trinit=1e-4,refinements=(.5,.1,.01))
